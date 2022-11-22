@@ -1,0 +1,134 @@
+.featured {
+  flex: 2;
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  padding: 10px;
+
+  .top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: gray;
+
+    .title {
+      font-weight: 700;
+      font-size: 24px;
+      line-height: 36px;
+      color: #ff7506;
+    }
+  }
+
+  .bottom {
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    background: #ffffff;
+    box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
+    border-radius: 12px;
+
+    .featuredChart {
+      width: 60px;
+      height: 60px;
+    }
+    #data_number {
+      width: 80px;
+    }
+    #status {
+      width: 102px;
+      .active_device {
+        svg {
+          color: #ffd130;
+        }
+      }
+      .active_service {
+        svg {
+          color: #4277ff;
+        }
+      }
+      .used_order {
+        svg {
+          color: #35c75a;
+        }
+      }
+      .missing {
+        svg {
+          color: #f178b6;
+        }
+      }
+    }
+    #data_device {
+      color: #ff7506;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    #data_service {
+      color: #4277ff;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    #data_order {
+      color: #35c75a;
+      font-weight: 700;
+      font-size: 14px;
+    }
+    .title {
+      font-weight: 600;
+      font-size: 14px;
+      color: #ff7506;
+      img {
+        margin-right: 6px;
+        color: #ff7506;
+      }
+    }
+
+    .amount {
+      font-weight: 800;
+      font-size: 24px;
+      color: #535261;
+    }
+
+    .desc {
+      font-weight: 400;
+      font-size: 12px;
+      color: #7e7d88;
+      i {
+        svg {
+          height: 4px !important;
+          margin-bottom: 3px;
+        }
+      }
+    }
+
+    .summary {
+      width: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      .item {
+        text-align: center;
+
+        .itemTitle {
+          font-size: 14px;
+          color: gray;
+        }
+
+        .itemResult {
+          display: flex;
+          align-items: center;
+          margin-top: 10px;
+          font-size: 14px;
+
+          &.positive {
+            color: green;
+          }
+
+          &.negative {
+            color: red;
+          }
+        }
+      }
+    }
+  }
+}

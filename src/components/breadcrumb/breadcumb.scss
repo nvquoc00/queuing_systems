@@ -1,0 +1,21 @@
+.ant-breadcrumb {
+  position: relative;
+  width: calc(100%);
+  height: 88px;
+  font-weight: 700;
+  font-size: 20px !important;
+  line-height: 30px;
+  padding: 30px !important;
+  span {
+    text-transform: capitalize;
+    color: #ff9138 !important;
+  }
+}
+.breadcrumbsCustomStyle {
+  li {
+    &:first-child,
+    &:nth-child(2) {
+      display: none;
+    }
+  }
+}

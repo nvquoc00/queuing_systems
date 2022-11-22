@@ -1,0 +1,22 @@
+.chart {
+  flex: 4;
+  -webkit-box-shadow: 2px 4px 10px 1px rgba(0, 0, 0, 0.47);
+  box-shadow: 2px 4px 10px 1px rgba(201, 201, 201, 0.47);
+  padding: 10px;
+  color: gray;
+  height: 476px;
+  border-radius: 10px;
+  .title {
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 30px;
+    color: #282739;
+  }
+  .recharts-wrapper,
+  .recharts-surface {
+    height: 455px !important;
+  }
+  .chartGrid {
+    stroke: rgb(228, 225, 225);
+  }
+}
