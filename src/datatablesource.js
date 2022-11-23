@@ -1,39 +1,55 @@
-export const userColumns = [
-  { field: "id", headerName: "ID", width: 70 },
-  {
-    field: "user",
-    headerName: "User",
-    width: 230,
-    renderCell: (params) => {
-      return (
-        <div className="cellWithImg">
-          <img className="cellImg" src={params.row.img} alt="avatar" />
-          {params.row.username}
-        </div>
-      );
-    },
-  },
-  {
-    field: "email",
-    headerName: "Email",
-    width: 230,
-  },
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
+const circle = <FontAwesomeIcon icon={faCircle} />;
 
+export const userColumns = [
+  { field: "id", headerName: "Mã thiết bị", width: 100 },
   {
-    field: "address",
-    headerName: "Address",
+    field: "name",
+    headerName: "Tên thiết bị",
     width: 100,
   },
   {
-    field: "status",
-    headerName: "Status",
+    field: "address",
+    headerName: "Địa chỉ IP",
+    width: 120,
+  },
+
+  {
+    field: "activity",
+    headerName: "Trạng thái hoạt động",
+    width: 175,
+    renderCell: (params) => {
+      return (
+        <>
+          <p>
+            <i className={`cellWithStatus ${params.row.activity}`}>{circle}</i>
+            {params.row.activity}
+          </p>
+        </>
+      );
+    },
+  },
+  {
+    field: "connection",
+    headerName: "Trạng thái kết nối",
     width: 160,
     renderCell: (params) => {
       return (
-        <div className={`cellWithStatus ${params.row.status}`}>
-          {params.row.status}
-        </div>
+        <>
+          <p>
+            <i className={`cellWithStatus ${params.row.connection}`}>
+              {circle}
+            </i>
+            {params.row.connection}
+          </p>
+        </>
       );
     },
+  },
+  {
+    field: "usedsv",
+    headerName: "Dịch vụ sử dụng",
+    width: 180,
   },
 ];

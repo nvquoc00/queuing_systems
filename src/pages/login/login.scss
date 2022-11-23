@@ -57,26 +57,32 @@ $-Orange-500: #ff7506;
       color: #37474f;
     }
     input {
-      box-sizing: border-box;
-
-      /* Auto layout */
-
       display: flex;
       flex-direction: row;
       align-items: center;
-      padding: 10px 270px 10px 12px;
+      padding: 10px 240px 10px 12px;
       gap: 10px;
-
-      width: 400px;
-      height: 44px;
-
-      /* white */
-
-      background: #ffffff;
-      /* Gray/$-gray-100 */
-
+      background: #ffffff !important;
       border: 1.5px solid #d4d4d7;
+      border-radius: 8px 0px 0px 8px;
+    }
+    .ant-input-affix-wrapper {
       border-radius: 8px;
+      border: 1.5px solid #d4d4d7;
+      width: 418px;
+      height: 45px;
+      font-weight: 300;
+      font-size: 18px;
+      padding: 0px;
+    }
+    .ant-input {
+      border: none;
+      font-size: revert;
+    }
+    .ant-input-suffix {
+      background: #e8f0fe;
+      margin-left: 0px;
+      padding-right: 4px;
     }
 
     i:hover {

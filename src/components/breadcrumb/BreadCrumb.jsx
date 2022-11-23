@@ -6,7 +6,7 @@ import "./breadcumb.scss";
 const BreadCrumb = () => {
   const location = useLocation();
   const pages = {
-    Device: "Thiết bị",
+    device: "Thiết bị",
     profile: "Thông tin cá nhân",
     Service: "Dịch vụ",
     Level: "Cấp số",

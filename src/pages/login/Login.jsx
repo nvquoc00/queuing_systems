@@ -8,17 +8,16 @@ import { AuthContext } from "../../context/AuthContext";
 import logo from "../../images/logo.png";
 import bg from "../../images/login.png";
 
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import { Input, Space } from "antd";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faEyeSlash } from "@fortawesome/free-solid-svg-icons";
 import { faCircleExclamation } from "@fortawesome/free-solid-svg-icons";
-const eye = <FontAwesomeIcon icon={faEyeSlash} />;
 const circleExclamation = <FontAwesomeIcon icon={faCircleExclamation} />;
 
 const Login = () => {
   const [error, setError] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [hidePassword, setHidePassword] = useState(false);
 
   const navigate = useNavigate();
 
@@ -38,9 +37,6 @@ const Login = () => {
         setError(true);
       });
   };
-  const togglePasswordVisiblity = () => {
-    setHidePassword(hidePassword ? false : true);
-  };
 
   return (
     <div className="login">
@@ -55,15 +51,15 @@ const Login = () => {
             <div className="userLogin__formTop">
               <label className="userLogin__formTextLabel">Mật khẩu*</label>
               <div>
-                <input
-                  onChange={(e) => setPassword(e.target.value)}
-                  type={hidePassword ? "text" : "password"}
-                />
-                <span>
-                  <i className="field-icon" onClick={togglePasswordVisiblity}>
-                    {eye}
-                  </i>
-                </span>
+                <Space direction="vertical">
+                  <Input.Password
+                    onChange={(e) => setPassword(e.target.value)}
+                    placeholder="input password"
+                    iconRender={(visible) =>
+                      visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                    }
+                  />
+                </Space>
               </div>
             </div>
             <div className="userLogin__formTextNav">

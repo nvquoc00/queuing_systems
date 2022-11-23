@@ -9,6 +9,8 @@ import {
 } from "firebase/auth";
 import { auth } from "../../firebase";
 import { useNavigate } from "react-router-dom";
+import { EyeInvisibleOutlined, EyeTwoTone } from "@ant-design/icons";
+import { Input, Space } from "antd";
 import logo from "../../images/logo.png";
 import bgFPW from "../../icons/bg-forgot.svg";
 
@@ -47,21 +49,33 @@ const ResetPassword = () => {
           <img src={logo} alt="" width="170px" />
           <h3>Đặt lại mật khẩu mới</h3>
           <form onSubmit={handleSubmitPassword}>
-            <div className="loginForm">
+            <div className="resetPWForm">
               <label className="userLogin__formTextLabel">Mật khẩu*</label>
-              <input
-                type="password"
-                onChange={(e) => setPassword(e.target.value)}
-              />
+
+              <Space direction="vertical">
+                <Input.Password
+                  onChange={(e) => setPassword(e.target.value)}
+                  placeholder=""
+                  iconRender={(visible) =>
+                    visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                  }
+                />
+              </Space>
               <label className="userLogin__formTextLabel">
                 Nhập lại mật khẩu*
               </label>
-              <input
-                type="password"
-                onChange={(e) => setPasswordConfirm(e.target.value)}
-              />
+
+              <Space direction="vertical">
+                <Input.Password
+                  onChange={(e) => setPasswordConfirm(e.target.value)}
+                  placeholder=""
+                  iconRender={(visible) =>
+                    visible ? <EyeTwoTone /> : <EyeInvisibleOutlined />
+                  }
+                />
+              </Space>
             </div>
-            {error && <span>{error}</span>}
+            {error && <span className="error">{error}</span>}
             <button className="button--orange" type="submit">
               Xác nhận
             </button>
