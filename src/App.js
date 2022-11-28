@@ -5,6 +5,16 @@ import ForgotPassword from "./pages/forgotpw/ForgetPassword";
 import List from "./pages/list/List";
 import Single from "./pages/single/Single";
 import New from "./pages/new/New";
+import DetailDevice from "./pages/detail/device/DetailDevice";
+import Update from "./pages/update/device/Update";
+import Device from "./pages/new/device/Device";
+import Service from "./pages/list/service/Service";
+import NewService from "./pages/new/service/NewService";
+import DetailService from "./pages/detail/service/DetailService";
+import UpdateService from "./pages/update/service/UpdateService";
+import IssuedNo from "./pages/list/issuedNo/IssuedNo";
+import NewIssuedNo from "./pages/new/issuedNo/NewIssuedNo";
+import DetailIssuedNo from "./pages/detail/issuedNo/DetailIssuedNo";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
@@ -56,44 +66,95 @@ function App() {
                 }
               />
               <Route
-                path=":userId"
+                path="newDevice"
                 element={
                   <RequireAuth>
-                    <Single />
+                    <Device />
                   </RequireAuth>
                 }
               />
               <Route
-                path="new"
+                path=":id"
                 element={
                   <RequireAuth>
-                    <New inputs={userInputs} title="Add New User" />
+                    <DetailDevice />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path=":id/updateDevice"
+                action={({ params }) => {}}
+                element={
+                  <RequireAuth>
+                    <Update />
                   </RequireAuth>
                 }
               />
             </Route>
-            <Route path="products">
+            <Route path="service/listService">
               <Route
                 index
                 element={
                   <RequireAuth>
-                    <List />
+                    <Service />
                   </RequireAuth>
                 }
               />
               <Route
-                path=":productId"
+                path=":id"
                 element={
                   <RequireAuth>
-                    <Single />
+                    <DetailService />
                   </RequireAuth>
                 }
               />
               <Route
-                path="new"
+                path=":id/updateService"
                 element={
                   <RequireAuth>
-                    <New inputs={productInputs} title="Add New Product" />
+                    <UpdateService />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="newService"
+                element={
+                  <RequireAuth>
+                    <NewService />
+                  </RequireAuth>
+                }
+              />
+            </Route>
+            <Route path="issuedNo./listIssuedNo.">
+              <Route
+                index
+                element={
+                  <RequireAuth>
+                    <IssuedNo />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path=":id"
+                element={
+                  <RequireAuth>
+                    <DetailIssuedNo />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path=":id/updateService"
+                element={
+                  <RequireAuth>
+                    <UpdateService />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="newIssuedNo."
+                element={
+                  <RequireAuth>
+                    <NewIssuedNo />
                   </RequireAuth>
                 }
               />

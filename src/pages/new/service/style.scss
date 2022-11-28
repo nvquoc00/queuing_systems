@@ -1,0 +1,47 @@
+.newDevice .newDeviceContainer .content .title2nd {
+  margin: 25px 0px 0px 25px;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 36px;
+  color: #ff7506;
+
+  position: absolute;
+  left: 204px;
+  top: 440px;
+}
+.newDevice .newDeviceContainer .content #right .describe {
+  display: grid;
+  margin: 30px 10px;
+  textarea {
+    border: 1.5px solid #d4d4d7;
+    border-radius: 8px;
+
+    flex-direction: row;
+    align-items: flex-start;
+    padding: 10px 20px 10px 12px;
+    margin-top: 10px;
+    gap: 10px;
+
+    width: 485px;
+    height: 132px;
+  }
+}
+.newDevice .newDeviceContainer .content .checkbox {
+  position: absolute;
+  left: 265px;
+  top: 520px;
+  font-weight: 600;
+  font-size: 16px;
+
+  input {
+    margin: 10px;
+    color: #535261;
+    font-weight: 400;
+    font-size: 16px;
+    border: 1.5px solid #d4d4d7;
+    border-radius: 8px;
+    width: 54px;
+    height: 40px;
+    text-align: center;
+  }
+}

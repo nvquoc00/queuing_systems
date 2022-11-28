@@ -53,3 +53,96 @@ export const userColumns = [
     width: 180,
   },
 ];
+
+export const serviceColumns = [
+  { field: "id", headerName: "Mã dịch vụ", width: 150 },
+  {
+    field: "name",
+    headerName: "Tên dịch vụ",
+    width: 210,
+  },
+  {
+    field: "describe",
+    headerName: "Mô tả",
+    width: 220,
+  },
+
+  {
+    field: "status",
+    headerName: "Trạng thái hoạt động",
+    width: 252,
+    renderCell: (params) => {
+      return (
+        <>
+          <p>
+            <i className={`cellWithStatus ${params.row.status}`}>{circle}</i>
+            {params.row.status}
+          </p>
+        </>
+      );
+    },
+  },
+];
+export const serialColumns = [
+  { field: "id", headerName: "Số thứ tự", width: 300 },
+  {
+    field: "status",
+    headerName: "Trạng thái",
+    width: 305,
+    renderCell: (params) => {
+      return (
+        <>
+          <p>
+            <i className={`cellWithStatus ${params.row.status}`}>{circle}</i>
+            {params.row.status}
+          </p>
+        </>
+      );
+    },
+  },
+];
+
+export const issuedNoColumns = [
+  { field: "id", headerName: "STT", width: 90 },
+  {
+    field: "user",
+    headerName: "Tên Khách hàng",
+    width: 140,
+  },
+  {
+    field: "service",
+    headerName: "Tên dịch vụ",
+    width: 170,
+  },
+
+  {
+    field: "time",
+    headerName: "Thời gian cấp",
+    width: 150,
+  },
+  {
+    field: "expiry",
+    headerName: "Hạn sử dụng",
+    width: 150,
+  },
+  {
+    field: "status",
+    headerName: "Trạng thái",
+    width: 115,
+    renderCell: (params) => {
+      return (
+        <>
+          <p>
+            <i className={`cellWithStatus ${params.row.status}`}>{circle}</i>
+            {params.row.status}
+          </p>
+        </>
+      );
+    },
+  },
+  {
+    field: "source",
+    headerName: "Nguồn cấp",
+    width: 95,
+  },
+];

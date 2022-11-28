@@ -6,17 +6,37 @@ import "./breadcumb.scss";
 const BreadCrumb = () => {
   const location = useLocation();
   const pages = {
-    device: "Thiết bị",
     profile: "Thông tin cá nhân",
-    Service: "Dịch vụ",
-    Level: "Cấp số",
+    service: "Dịch vụ",
+    listService: "Danh sách dịch vụ",
+    newService: "Thêm dịch vụ",
+
+    detail: "Chi tiết",
+    updateService: "Cập nhật",
+    "issuedNo.": "Cấp số",
+    "listIssuedNo.": "Danh sách cấp số",
+    "newIssuedNo.": "Cấp số mới",
+
     Report: "Báo cáo",
     Setting: "Cài đặt hệ thống",
+    device: "Thiết bị",
     listDevice: "Danh sách thiết bị",
+    newDevice: "Thêm thiết bị",
+    updateDevice: "Cập nhật thiết bị",
   };
   const breadCrumbView = () => {
     const { pathname } = location;
-    const pathnames = pathname.split("/").filter((item) => item);
+    const pathnames =
+      pathname.split("/").length > 4
+        ? pathname
+            .split("/")
+            .filter(
+              (item) =>
+                item !== pathname.split("/")[3] &&
+                item !== pathname.split("/")[0]
+            )
+        : pathname.split("/").filter((item) => item);
+
     return (
       <div>
         <Breadcrumb separator=">">
@@ -31,7 +51,10 @@ const BreadCrumb = () => {
             const routeTo = `/${pathnames.slice(0, index + 1).join("/")}`;
             const isLast = index === pathnames.length - 1;
             return isLast ? (
-              <Breadcrumb.Item key={name} className="breadcrumbsCustomStyle">
+              <Breadcrumb.Item
+                key={pages[name]}
+                className="breadcrumbsCustomStyle"
+              >
                 {pages[name]}
               </Breadcrumb.Item>
             ) : (
@@ -40,6 +63,13 @@ const BreadCrumb = () => {
               </Breadcrumb.Item>
             );
           })}
+          {pathnames[pathnames.length - 1]?.indexOf("KIO") === 0 ? (
+            <Breadcrumb.Item className="breadcrumbsCustomStyle">
+              Chi tiết
+            </Breadcrumb.Item>
+          ) : (
+            <Breadcrumb.Item className="breadcrumbsCustomStyle"></Breadcrumb.Item>
+          )}
         </Breadcrumb>
       </div>
     );

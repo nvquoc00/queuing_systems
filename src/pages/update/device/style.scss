@@ -1,0 +1,48 @@
+.service-select {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 8px;
+
+  position: absolute;
+  width: 80%;
+  height: 76px;
+  left: 264px;
+  top: 566px;
+  label {
+    color: #282739;
+    font-weight: 600;
+    font-size: 16px;
+  }
+  .box-select {
+    .ant-select-selector {
+      background: #ffffff;
+      /* Orange/$-Orange-300 */
+
+      border: 1.5px solid #ffac6a;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      padding: 10px 20px 10px 12px;
+      gap: 10px;
+      width: 1028px;
+      height: 80px;
+    }
+  }
+  .ant-select-selection-item {
+    background: #ffac6a;
+    box-shadow: 0px 0px 6px #e7e9f2;
+    border-radius: 9px;
+    width: 155px;
+    height: 28px;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 12px;
+    gap: 10px;
+  }
+}

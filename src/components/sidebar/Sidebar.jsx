@@ -27,39 +27,48 @@ const Sidebar = () => {
             <DashboardIcon className="icon" />
             <span>Dashboard</span>
           </li>
-          <Link to="/users" style={{ textDecoration: "none" }}>
+          <Link to="/device/listDevice" style={{ textDecoration: "none" }}>
             <li>
               <MonitorIcon className="icon" />
               <span>Thiết bị</span>
             </li>
           </Link>
-          <Link to="/users" style={{ textDecoration: "none" }}>
+          <Link to="/service/listService" style={{ textDecoration: "none" }}>
             <li>
               <ForumIcon className="icon" />
               <span>Dịch vụ</span>
             </li>
           </Link>
-          <Link to="/products" style={{ textDecoration: "none" }}>
+          <Link
+            to="/issuedNo./listIssuedNo."
+            style={{ textDecoration: "none" }}
+          >
             <li>
               <LayersIcon className="icon" />
               <span>Cấp số</span>
             </li>
           </Link>
-          <li>
-            <InsertDriveFileIcon className="icon" />
-            <span>Báo cáo</span>
-          </li>
-          <li>
-            <SettingsApplicationsIcon className="icon" />
-            <span>Cài đặt hệ thống</span>
-          </li>
-          <li></li>
-          <li></li>
+          <Link to="/statify/listStatify" style={{ textDecoration: "none" }}>
+            <li>
+              <InsertDriveFileIcon className="icon" />
+              <span>Báo cáo</span>
+            </li>
+          </Link>
+          <Link to="/setting/listSetting" style={{ textDecoration: "none" }}>
+            <li>
+              <SettingsApplicationsIcon className="icon" />
+              <span>Cài đặt hệ thống</span>
+            </li>
+          </Link>
 
-          <li>
-            <ExitToAppIcon style={{ color: "#ff7506" }} className="icon" />
-            <span style={{ color: "#FF7506" }}>Đăng xuất</span>
-          </li>
+          <li></li>
+          <li></li>
+          <Link to="/login" style={{ textDecoration: "none" }}>
+            <li>
+              <ExitToAppIcon style={{ color: "#ff7506" }} className="icon" />
+              <span style={{ color: "#FF7506" }}>Đăng xuất</span>
+            </li>
+          </Link>
         </ul>
       </div>
       <div className="bottom">

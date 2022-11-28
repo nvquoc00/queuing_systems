@@ -1,24 +1,27 @@
-import "./datatable.scss";
+import "./style.scss";
 import { DataGrid } from "@mui/x-data-grid";
-import { userColumns } from "../../datatablesource";
+import { serviceColumns } from "../../../datatablesource";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { collection, getDocs } from "firebase/firestore";
-import { db } from "../../firebase";
+import { db } from "../../../firebase";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
-import { Input, Select } from "antd";
-
+import { Input, Select, DatePicker, Space } from "antd";
+import dayjs from "dayjs";
 const { Search } = Input;
+const { RangePicker } = DatePicker;
 const plus = <FontAwesomeIcon icon={faPlus} />;
-const Datatable = () => {
+const ServiceDT = () => {
   const [data, setData] = useState([]);
+  const dateFormat = "DD/MM/YYYY";
+  const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
 
   useEffect(() => {
     const fetchData = async () => {
       let list = [];
       try {
-        const querySnapshot = await getDocs(collection(db, "devices"));
+        const querySnapshot = await getDocs(collection(db, "services"));
         querySnapshot.forEach((doc) => {
           console.log(doc.data());
           list.push({ id: doc.id, ...doc.data() });
@@ -30,25 +33,6 @@ const Datatable = () => {
       }
     };
     fetchData();
-
-    //   // LISTEN (REALTIME)
-    //   //   const unsub = onSnapshot(
-    //   //     collection(db, "devices"),
-    //   //     (snapShot) => {
-    //   //       let list = [];
-    //   //       snapShot.docs.forEach((doc) => {
-    //   //         list.push({ id: doc.id, ...doc.data() });
-    //   //       });
-    //   //       setData(list);
-    //   //     },
-    //   //     (error) => {
-    //   //       console.log(error);
-    //   //     }
-    //   //   );
-
-    //   // return () => {
-    //   //   unsub();
-    //   // };
   }, []);
 
   const viewColumn = [
@@ -61,7 +45,7 @@ const Datatable = () => {
           <div className="cellAction">
             <Link
               to={{
-                pathname: `/device/listDevice/${params.id}`,
+                pathname: `/service/listService/${params.id}`,
                 query: `${params}`,
               }}
             >
@@ -82,7 +66,7 @@ const Datatable = () => {
           <div className="cellAction">
             <Link
               to={{
-                pathname: `/device/listDevice/${params.id}/updateDevice`,
+                pathname: `/service/listService/${params.id}/updateService`,
                 query: `${params}`,
               }}
             >
@@ -125,26 +109,16 @@ const Datatable = () => {
             />
           </div>
           <div className="selectconnection">
-            <div className="connectionTitle">Trạng thái kết nối</div>
-            <Select
-              defaultValue="Tất cả"
-              style={{ width: 120 }}
-              onChange={handleChange}
-              options={[
-                {
-                  value: "Tất cả",
-                  label: "Tất cả",
-                },
-                {
-                  value: "Kết nối",
-                  label: "Kết nối",
-                },
-                {
-                  value: "Mất kết nối",
-                  label: "Mất kết nối",
-                },
-              ]}
-            />
+            <div className="connectionTitle">Chọn thời gian</div>
+            <Space
+              direction="vertical"
+              size={12}
+              style={{
+                padding: "6px",
+              }}
+            >
+              <RangePicker format={dateFormat} />
+            </Space>
           </div>
           <div className="searchInput">
             <div className="searchTitle">Từ khóa</div>
@@ -159,19 +133,19 @@ const Datatable = () => {
         <DataGrid
           className="datagrid"
           rows={data}
-          columns={userColumns.concat(viewColumn, updateColumn)}
+          columns={serviceColumns.concat(viewColumn, updateColumn)}
           pageSize={9}
           rowsPerPageOptions={[9]}
         />
       </div>
       <div className="addNewDevice">
-        <Link to="/device/listDevice/newDevice" className="link">
+        <Link to="/service/listService/newService" className="link">
           <i>{plus}</i>
-          Thêm thiết bị
+          Thêm dịch vụ
         </Link>
       </div>
     </div>
   );
 };
 
-export default Datatable;
+export default ServiceDT;
