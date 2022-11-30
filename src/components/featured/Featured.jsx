@@ -57,7 +57,7 @@ const Featured = () => {
           <p className="amount">276</p>
           <p className="title">
             <img
-              className="service"
+              className="serviceimg"
               src={require("../../images/service.png")}
               alt="service"
             />

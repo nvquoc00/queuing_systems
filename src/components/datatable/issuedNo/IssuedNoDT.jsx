@@ -17,7 +17,6 @@ const IssuedNoDT = (props) => {
   const id = props.id;
   const [data, setData] = useState([]);
   const dateFormat = "DD/MM/YYYY";
-  const dateFormatList = ["DD/MM/YYYY", "DD/MM/YY"];
 
   useEffect(() => {
     const fetchData = async () => {

@@ -1,18 +1,17 @@
-import "./style.scss";
 import Sidebar from "../../../components/sidebar/Sidebar";
 import Navbar from "../../../components/navbar/Navbar";
-import IssuedNoDT from "../../../components/datatable/issuedNo/IssuedNoDT";
+import HistoryDT from "../../../components/datatable/profession/HistoryDT";
 
-const IssuedNo = () => {
+const History = () => {
   return (
     <div className="list">
       <Sidebar />
       <div className="listContainer">
         <Navbar />
-        <IssuedNoDT />
+        <HistoryDT />
       </div>
     </div>
   );
 };
 
-export default IssuedNo;
+export default History;

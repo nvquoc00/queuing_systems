@@ -10,9 +10,35 @@ import { Link } from "react-router-dom";
 import { DarkModeContext } from "../../context/darkModeContext";
 import { useContext } from "react";
 import logo from "../../images/logo.png";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faEllipsisVertical } from "@fortawesome/free-solid-svg-icons";
+import { Dropdown, Space } from "antd";
+import { DownOutlined } from "@ant-design/icons";
 
 const Sidebar = () => {
   const { dispatch } = useContext(DarkModeContext);
+  const dots = <FontAwesomeIcon icon={faEllipsisVertical} />;
+
+  const items = [
+    {
+      label: (
+        <a href="http://localhost:3000/setting/profession">Quản lý vai trò</a>
+      ),
+      key: "profession",
+    },
+    {
+      label: (
+        <a href="http://localhost:3000/setting/account">Quản lý tài khoản</a>
+      ),
+      key: "account",
+    },
+    {
+      label: (
+        <a href="http://localhost:3000/setting/history">Nhật ký người dùng</a>
+      ),
+      key: "history",
+    },
+  ];
   return (
     <div className="sidebar">
       <div className="top">
@@ -23,10 +49,12 @@ const Sidebar = () => {
       <hr />
       <div className="center">
         <ul>
-          <li>
-            <DashboardIcon className="icon" />
-            <span>Dashboard</span>
-          </li>
+          <Link to="/" style={{ textDecoration: "none" }}>
+            <li>
+              <DashboardIcon className="icon" />
+              <span>Dashboard</span>
+            </li>
+          </Link>
           <Link to="/device/listDevice" style={{ textDecoration: "none" }}>
             <li>
               <MonitorIcon className="icon" />
@@ -54,12 +82,18 @@ const Sidebar = () => {
               <span>Báo cáo</span>
             </li>
           </Link>
-          <Link to="/setting/listSetting" style={{ textDecoration: "none" }}>
+          <div>
             <li>
-              <SettingsApplicationsIcon className="icon" />
-              <span>Cài đặt hệ thống</span>
+              <Dropdown menu={{ items }}>
+                <Space>
+                  <SettingsApplicationsIcon className="icon" />
+                  <span>Cài đặt hệ thống</span>
+                  <i className="settingsystem">{dots}</i>
+                  <DownOutlined />
+                </Space>
+              </Dropdown>
             </li>
-          </Link>
+          </div>
 
           <li></li>
           <li></li>

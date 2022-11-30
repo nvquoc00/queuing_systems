@@ -15,6 +15,7 @@ import UpdateService from "./pages/update/service/UpdateService";
 import IssuedNo from "./pages/list/issuedNo/IssuedNo";
 import NewIssuedNo from "./pages/new/issuedNo/NewIssuedNo";
 import DetailIssuedNo from "./pages/detail/issuedNo/DetailIssuedNo";
+import Report from "./pages/list/report/Report";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import { productInputs, userInputs } from "./formSource";
 import "./style/dark.scss";
@@ -22,6 +23,13 @@ import "./index.css";
 import { useContext } from "react";
 import { DarkModeContext } from "./context/darkModeContext";
 import { AuthContext } from "./context/AuthContext";
+import Profession from "./pages/list/profession/Profession";
+import NewProfession from "./pages/new/profession/NewProfession";
+import ProfessionUpdate from "./pages/update/profession/ProfessionUpdate";
+import Account from "./pages/list/profession/Account";
+import NewAccount from "./pages/new/profession/NewAccount";
+import AccountUpdate from "./pages/update/profession/AccountUpdate";
+import History from "./pages/list/profession/History";
 
 function App() {
   const { darkMode } = useContext(DarkModeContext);
@@ -155,6 +163,78 @@ function App() {
                 element={
                   <RequireAuth>
                     <NewIssuedNo />
+                  </RequireAuth>
+                }
+              />
+            </Route>
+            <Route path="statify/listStatify">
+              <Route
+                index
+                element={
+                  <RequireAuth>
+                    <Report />
+                  </RequireAuth>
+                }
+              />
+            </Route>
+            <Route path="setting/profession">
+              <Route
+                index
+                element={
+                  <RequireAuth>
+                    <Profession />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="newProfession"
+                element={
+                  <RequireAuth>
+                    <NewProfession />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path=":id/updateProfession"
+                element={
+                  <RequireAuth>
+                    <ProfessionUpdate />
+                  </RequireAuth>
+                }
+              />
+            </Route>
+            <Route path="setting/account">
+              <Route
+                index
+                element={
+                  <RequireAuth>
+                    <Account />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path="newAccount"
+                element={
+                  <RequireAuth>
+                    <NewAccount />
+                  </RequireAuth>
+                }
+              />
+              <Route
+                path=":id/updateAccount"
+                element={
+                  <RequireAuth>
+                    <AccountUpdate />
+                  </RequireAuth>
+                }
+              />
+            </Route>
+            <Route path="setting/history">
+              <Route
+                index
+                element={
+                  <RequireAuth>
+                    <History />
                   </RequireAuth>
                 }
               />
